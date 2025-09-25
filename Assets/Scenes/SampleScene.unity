@@ -400,7 +400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controle: {fileID: 0}
-  velocidade: 6
+  velocidade: 16
   alturaPulo: 6
   gravidade: -20
   somPulo: {fileID: 8300000, guid: fcd6f65e1c53efd42ac281b85ddbaf7a, type: 3}
@@ -979,7 +979,7 @@ MonoBehaviour:
   posEfeitoTiro: {fileID: 56352081}
   faisca: {fileID: 100004, guid: b46890100828db6429ff69c322b45893, type: 3}
   clips:
-  - {fileID: 8300000, guid: c02eaa2f6aa1a334a88e6a94a2e1ea2c, type: 3}
+  - {fileID: 8300000, guid: 547e9ee10bc215949ac014b05ba78332, type: 3}
   - {fileID: 8300000, guid: c086b22584c65c246bcaff19a1cb4eef, type: 3}
   - {fileID: 8300000, guid: 84eb3af28b63f8b4b8b26fb8836297ac, type: 3}
   - {fileID: 8300000, guid: d46323e22e74e46baa241cbf48c85671, type: 3}
@@ -993,7 +993,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c02eaa2f6aa1a334a88e6a94a2e1ea2c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 547e9ee10bc215949ac014b05ba78332, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.197
   m_Pitch: 1
