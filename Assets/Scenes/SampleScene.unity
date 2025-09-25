@@ -506,10 +506,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controle: {fileID: 0}
-  velocidade: 6
+  velocidade: 16
   alturaPulo: 6
   gravidade: -20
-  somPulo: {fileID: 8300000, guid: fcd6f65e1c53efd42ac281b85ddbaf7a, type: 3}
+  somPulo: {fileID: 8300000, guid: 0f2a75c1f4a47a345b7208a75185af74, type: 3}
   somPasso: {fileID: 8300000, guid: 8f116f6f829ce76478c46fd56308ad83, type: 3}
   checaChao: {fileID: 1729022163}
   raioEsfera: 0.4
@@ -534,7 +534,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.15
+  m_Volume: 0.232
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -630,6 +630,10 @@ PrefabInstance:
       propertyPath: vida
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 570141821011243621, guid: cb335a7ac7dd71e41b8cccde9f23df38, type: 3}
+      propertyPath: somMorte
+      value: 
+      objectReference: {fileID: 8300000, guid: 1677eeebc35474e4e919bcb3c7f24618, type: 3}
     - target: {fileID: 8189526861463469238, guid: cb335a7ac7dd71e41b8cccde9f23df38, type: 3}
       propertyPath: m_LocalPosition.x
       value: 50.75181
@@ -840,6 +844,10 @@ PrefabInstance:
       propertyPath: vida
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 7515056834625876103, guid: d763b7169322316469e444bd775cb9aa, type: 3}
+      propertyPath: somMorte
+      value: 
+      objectReference: {fileID: 8300000, guid: 1677eeebc35474e4e919bcb3c7f24618, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1090,7 +1098,7 @@ MonoBehaviour:
   posEfeitoTiro: {fileID: 56352081}
   faisca: {fileID: 100004, guid: b46890100828db6429ff69c322b45893, type: 3}
   clips:
-  - {fileID: 8300000, guid: c02eaa2f6aa1a334a88e6a94a2e1ea2c, type: 3}
+  - {fileID: 8300000, guid: 547e9ee10bc215949ac014b05ba78332, type: 3}
   - {fileID: 8300000, guid: c086b22584c65c246bcaff19a1cb4eef, type: 3}
   - {fileID: 8300000, guid: 84eb3af28b63f8b4b8b26fb8836297ac, type: 3}
   - {fileID: 8300000, guid: d46323e22e74e46baa241cbf48c85671, type: 3}
@@ -1104,7 +1112,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c02eaa2f6aa1a334a88e6a94a2e1ea2c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 547e9ee10bc215949ac014b05ba78332, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.197
   m_Pitch: 1
@@ -1361,6 +1369,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 570141821011243621, guid: cb335a7ac7dd71e41b8cccde9f23df38, type: 3}
+      propertyPath: somMorte
+      value: 
+      objectReference: {fileID: 8300000, guid: 1677eeebc35474e4e919bcb3c7f24618, type: 3}
     - target: {fileID: 8189526861463469238, guid: cb335a7ac7dd71e41b8cccde9f23df38, type: 3}
       propertyPath: m_LocalPosition.x
       value: 49.64
@@ -1920,6 +1932,10 @@ PrefabInstance:
       propertyPath: vida
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 570141821011243621, guid: cb335a7ac7dd71e41b8cccde9f23df38, type: 3}
+      propertyPath: somMorte
+      value: 
+      objectReference: {fileID: 8300000, guid: 1677eeebc35474e4e919bcb3c7f24618, type: 3}
     - target: {fileID: 8189526861463469238, guid: cb335a7ac7dd71e41b8cccde9f23df38, type: 3}
       propertyPath: m_LocalPosition.x
       value: 43.940434
@@ -2097,6 +2113,10 @@ PrefabInstance:
       propertyPath: vida
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 7515056834625876103, guid: d763b7169322316469e444bd775cb9aa, type: 3}
+      propertyPath: somMorte
+      value: 
+      objectReference: {fileID: 8300000, guid: 1677eeebc35474e4e919bcb3c7f24618, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2313,6 +2333,10 @@ PrefabInstance:
       propertyPath: vida
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 570141821011243621, guid: cb335a7ac7dd71e41b8cccde9f23df38, type: 3}
+      propertyPath: somMorte
+      value: 
+      objectReference: {fileID: 8300000, guid: 1677eeebc35474e4e919bcb3c7f24618, type: 3}
     - target: {fileID: 8189526861463469238, guid: cb335a7ac7dd71e41b8cccde9f23df38, type: 3}
       propertyPath: m_LocalPosition.x
       value: 46.926926
@@ -2509,6 +2533,10 @@ PrefabInstance:
       propertyPath: vida
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 7515056834625876103, guid: d763b7169322316469e444bd775cb9aa, type: 3}
+      propertyPath: somMorte
+      value: 
+      objectReference: {fileID: 8300000, guid: 1677eeebc35474e4e919bcb3c7f24618, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3222,6 +3250,10 @@ PrefabInstance:
       propertyPath: vida
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 7515056834625876103, guid: d763b7169322316469e444bd775cb9aa, type: 3}
+      propertyPath: somMorte
+      value: 
+      objectReference: {fileID: 8300000, guid: 1677eeebc35474e4e919bcb3c7f24618, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3283,6 +3315,10 @@ PrefabInstance:
       propertyPath: vida
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 7515056834625876103, guid: d763b7169322316469e444bd775cb9aa, type: 3}
+      propertyPath: somMorte
+      value: 
+      objectReference: {fileID: 8300000, guid: 1677eeebc35474e4e919bcb3c7f24618, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17616,6 +17652,10 @@ PrefabInstance:
       propertyPath: vida
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 570141821011243621, guid: cb335a7ac7dd71e41b8cccde9f23df38, type: 3}
+      propertyPath: somMorte
+      value: 
+      objectReference: {fileID: 8300000, guid: 1677eeebc35474e4e919bcb3c7f24618, type: 3}
     - target: {fileID: 8189526861463469238, guid: cb335a7ac7dd71e41b8cccde9f23df38, type: 3}
       propertyPath: m_LocalPosition.x
       value: 42.097298
