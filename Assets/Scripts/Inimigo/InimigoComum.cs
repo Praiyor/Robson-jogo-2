@@ -95,6 +95,8 @@ public class InimigoComum : MonoBehaviour, ILevarDano
     private void Morrer()
     {
         GameManager.EnemyKilled(true);
+        GameObject player = GameObject.FindWithTag("Player");
+        player.GetComponent<MovimentarPersonagem>().AtualizarPontuacao(+10);
         audioSrc.clip = somMorte;
         audioSrc.Play();
 

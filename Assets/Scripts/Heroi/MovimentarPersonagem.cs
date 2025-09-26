@@ -23,6 +23,8 @@ public class MovimentarPersonagem : MonoBehaviour
     private bool estahAbaixado = false;
     private bool levantarBloqueado;
     public float alturaLevantado, alturaAbaixado, posicaoCameraEmPe, posicaoCameraAbaixado;
+    private int pontos = 0;
+    public Text textoPontos;
 
     Vector3 velocidadeCai;
     // Start is called before the first frame update
@@ -31,6 +33,11 @@ public class MovimentarPersonagem : MonoBehaviour
         controle = GetComponent<CharacterController>();
         cameraTransform = Camera.main.transform;
         audioSrc = GetComponent<AudioSource>();
+
+        if(textoPontos != null)
+        {
+            textoPontos.text = "Pontos: " + pontos;
+        }
     }
 
     // Update is called once per frame
@@ -145,5 +152,9 @@ public class MovimentarPersonagem : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-
+    public void AtualizarPontuacao(int ponto)
+    {
+        pontos = ponto;
+        textoPontos.text = "Pontos: " + pontos;
+    }
 }
