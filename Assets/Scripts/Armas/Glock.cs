@@ -7,8 +7,7 @@ public class Glock : MonoBehaviour
 {
     public Text textoMunicao;
     public GameObject imgCursor;
-
-    private Animator anim;
+    private Animator anim;    
     private bool estahAtirando;
     private RaycastHit hit;
     public GameObject efeitoTiro;
@@ -22,7 +21,7 @@ public class Glock : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        estahAtirando = false;
+        estahAtirando = false;        
         anim = GetComponent<Animator>();
         somTiro = GetComponent<AudioSource>();
         AtualizarTextoMunicao();
@@ -30,8 +29,7 @@ public class Glock : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-
+    {        
         if (anim.GetBool("acaoOcorrendo"))
         {
             return;
