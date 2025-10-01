@@ -8,6 +8,9 @@ TagManager:
   - Pegar
   - Arma
   - LevarDano
+  - Entrar
+  - FxTemporaire
+  - CorpoCarro
   layers:
   - Default
   - TransparentFX
@@ -21,7 +24,7 @@ TagManager:
   - Post
   - TempleChao
   - BossArena
-  - 
+  - Carro
   - 
   - 
   - 

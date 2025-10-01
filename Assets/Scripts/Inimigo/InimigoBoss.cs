@@ -112,6 +112,11 @@ public class InimigoBoss : MonoBehaviour, ILevarDano
         audioSrc.clip = somMorte;
         audioSrc.Play();
 
+        if (PlayerStatus.Instance != null)
+        {
+            PlayerStatus.Instance.AtualizarPontuacao(+10);
+        }
+
         agente.isStopped = true;
         anim.SetBool("podeAndar", false);
         anim.SetBool("pararAtaque", true);
@@ -127,7 +132,10 @@ public class InimigoBoss : MonoBehaviour, ILevarDano
 
     public void DarDano()
     {
-        player.GetComponent<MovimentarPersonagem>().AtualizarVida(-20);
+        if (PlayerStatus.Instance != null)
+        {
+            PlayerStatus.Instance.AtualizarVida(-20);
+        }
     }
 
     public void Passo()
