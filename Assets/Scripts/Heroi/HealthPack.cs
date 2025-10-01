@@ -7,7 +7,7 @@ public class HealthPack : MonoBehaviour, IPegavel
     public void Pegar()
     {
         GameObject player = GameObject.FindWithTag("Player");
-        player.GetComponent<MovimentarPersonagem>().AtualizarVida(+50);
+        PlayerStatus.Instance.AtualizarVida(+50);
     }
 
 }

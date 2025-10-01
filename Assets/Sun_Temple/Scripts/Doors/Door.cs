@@ -51,6 +51,7 @@ namespace SunTemple
 			}
 
 			Cam = Camera.main;
+                
 			if (!Cam) {
 				Debug.LogWarning (this.GetType ().Name + ", No objects tagged with MainCamera in Scene", gameObject);
 				scriptIsEnabled = false;

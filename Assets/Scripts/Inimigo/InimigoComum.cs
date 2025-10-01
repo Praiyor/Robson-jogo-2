@@ -32,6 +32,7 @@ public class InimigoComum : MonoBehaviour, ILevarDano
         if (vida <= 0)
         {
             Morrer();
+            return;
         }
 
         if (fov.podeVerPlayer)
@@ -49,7 +50,49 @@ public class InimigoComum : MonoBehaviour, ILevarDano
 
     private void VaiAtrasJogador()
     {
-        float distanciaDoPlayer = Vector3.Distance(transform.position, player.transform.position);
+        GameObject alvo = fov.alvoAtual;
+        
+        bool alvoCarro = alvo.CompareTag("CorpoCarro");
+
+        if (alvoCarro)
+        {
+            EntrarCarro entrar = alvo.GetComponentInParent<EntrarCarro>();
+            if(entrar == null || !entrar.EstaDentro())
+            {
+                return;
+            }
+
+            Vector3 posAlvo = alvo.transform.position;
+            BoxCollider box = alvo.GetComponent<BoxCollider>();
+            if (box != null)
+            {
+                posAlvo = box.ClosestPoint(transform.position);
+            }
+
+            float distanciaAlvo = Vector3.Distance(transform.position, posAlvo);
+
+            if (distanciaAlvo < 5.0f)
+            {
+                agente.isStopped = true;
+                anim.SetTrigger("ataque");
+                anim.SetBool("podeAndar", false);
+                anim.SetBool("pararAtaque", false);
+                CorrigirRigiEntrar();
+            }
+            else
+            {
+                anim.SetBool("podeAndar", true);
+                anim.SetBool("pararAtaque", true);
+                CorrigirRigiSair();
+                agente.isStopped = false;
+                agente.SetDestination(posAlvo);
+                anim.ResetTrigger("ataque");
+            }
+
+        }
+
+        float distanciaDoPlayer = Vector3.Distance(transform.position, alvo.transform.position);
+
         if (distanciaDoPlayer < distanciaDoAtaque)
         {
             agente.isStopped = true;
@@ -68,7 +111,7 @@ public class InimigoComum : MonoBehaviour, ILevarDano
         if (anim.GetBool("podeAndar"))
         {
             agente.isStopped = false;
-            agente.SetDestination(player.transform.position);
+            agente.SetDestination(alvo.transform.position);
             anim.ResetTrigger("ataque");
         }
     }
@@ -95,8 +138,10 @@ public class InimigoComum : MonoBehaviour, ILevarDano
     private void Morrer()
     {
         GameManager.EnemyKilled(true);
-        GameObject player = GameObject.FindWithTag("Player");
-        player.GetComponent<MovimentarPersonagem>().AtualizarPontuacao(+10);
+        if (PlayerStatus.Instance != null)
+        {
+            PlayerStatus.Instance.AtualizarPontuacao(+10);
+        }
         audioSrc.clip = somMorte;
         audioSrc.Play();
 
@@ -112,7 +157,11 @@ public class InimigoComum : MonoBehaviour, ILevarDano
 
     public void DarDano()
     {
-        player.GetComponent<MovimentarPersonagem>().AtualizarVida(-25);
+        if(PlayerStatus.Instance != null)
+        {
+            PlayerStatus.Instance.AtualizarVida(-25);
+        }
+        
     }
 
     public void Passo()

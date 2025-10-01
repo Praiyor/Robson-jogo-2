@@ -21,7 +21,7 @@ public class FieldOfViewEditor : Editor
 
         if (fov.podeVerPlayer)
         {
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            GameObject player = fov.alvoAtual;
             Handles.color = Color.green;
             Handles.DrawLine(fov.transform.position, player.transform.position);
         }

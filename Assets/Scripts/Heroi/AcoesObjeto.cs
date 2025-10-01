@@ -32,6 +32,10 @@ public class AcoesObjeto : MonoBehaviour
             }
             pegou = !pegou;
         }
+        if(Input.GetKeyDown(KeyCode.F) && idObjetos.getObjEntrar() != null)
+        {
+            Entrar();
+        }
     }
 
     private void Pegar()
@@ -56,5 +60,16 @@ public class AcoesObjeto : MonoBehaviour
         GameObject obj = idObjetos.getObjArrastar();
         Destroy(obj.GetComponent<DragDrop>());
         idObjetos.enabled = true;
+    }
+
+    private void Entrar()
+    {
+        GameObject obj = idObjetos.getObjEntrar();
+        IEntrar entrarObj = obj.GetComponent<IEntrar>();
+
+        if (entrarObj != null)
+        {
+            entrarObj.Entrar();
+        }
     }
 }
