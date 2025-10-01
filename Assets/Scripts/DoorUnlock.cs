@@ -8,10 +8,6 @@ public class DoorUnlock : MonoBehaviour
     public DoorUnlockType unlockType;
     private Door door;
     private Outline outline;
-    [Header("Som da Porta")]
-    public AudioClip unlockSound;
-    private AudioSource audioSrc;
-
 
     private void Awake()
     {
@@ -21,8 +17,6 @@ public class DoorUnlock : MonoBehaviour
         {
             outline.enabled = false;
         }
-        if (audioSrc == null)
-            audioSrc = gameObject.AddComponent<AudioSource>();
     }
 
     private void OnEnable()
@@ -59,8 +53,6 @@ public class DoorUnlock : MonoBehaviour
             {
                 outline.enabled = true;
             }
-            if (unlockSound != null && audioSrc != null)
-                audioSrc.PlayOneShot(unlockSound);
         }
     }
 }

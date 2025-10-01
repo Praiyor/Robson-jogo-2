@@ -25,27 +25,27 @@ public class MovimentarPersonagem : MonoBehaviour
     public float alturaLevantado, alturaAbaixado, posicaoCameraEmPe, posicaoCameraAbaixado;
     private int pontos = 0;
     public Text textoPontos;
+    private PlayerStatus playerStatus;
 
     Vector3 velocidadeCai;
-    // Start is called before the first frame update
+
     void Start()
     {
         controle = GetComponent<CharacterController>();
         cameraTransform = Camera.main.transform;
         audioSrc = GetComponent<AudioSource>();
+        playerStatus = GetComponent<PlayerStatus>();
 
-        if(textoPontos != null)
+        if (textoPontos != null)
         {
             textoPontos.text = "Pontos: " + pontos;
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(vida <= 0)
+        if (playerStatus != null && playerStatus.vida <= 0)
         {
-            FimDeJogo();
             return;
         }
 
@@ -131,30 +131,4 @@ public class MovimentarPersonagem : MonoBehaviour
         levantarBloqueado = Physics.Raycast(cameraTransform.position, Vector3.up, out hit, 1.1f);
     }
 
-    private int vida = 100;
-    public Slider sliderVida;
-
-    public void AtualizarVida(int novaVida)
-    {
-        vida = Mathf.CeilToInt(Mathf.Clamp(vida + novaVida, 0, 100));
-
-        sliderVida.value = vida;
-    }
-
-    private void FimDeJogo()
-    {
-        //Time.timeScale = 0;
-        //Camera.main.GetComponent<AudioListener>().enabled = false;
-
-        //GetComponentInChildren<Glock>().enabled = false;
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-        SceneManager.LoadScene(0);
-    }
-
-    public void AtualizarPontuacao(int ponto)
-    {
-        pontos = ponto;
-        textoPontos.text = "Pontos: " + pontos;
-    }
 }

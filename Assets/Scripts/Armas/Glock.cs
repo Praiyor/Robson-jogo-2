@@ -5,23 +5,21 @@ using UnityEngine.UI;
 
 public class Glock : MonoBehaviour
 {
-    public Text textoMunicao;
     public GameObject imgCursor;
-    private Animator anim;    
+
+    private Animator anim;
     private bool estahAtirando;
     private RaycastHit hit;
     public GameObject efeitoTiro;
     public GameObject posEfeitoTiro;
     public GameObject faisca;
     private AudioSource somTiro;
-    private int carregador = 3;
-    private int municao = 17;
     public AudioClip[] clips;
 
     // Start is called before the first frame update
     void Start()
     {
-        estahAtirando = false;        
+        estahAtirando = false;
         anim = GetComponent<Animator>();
         somTiro = GetComponent<AudioSource>();
         AtualizarTextoMunicao();
@@ -29,7 +27,8 @@ public class Glock : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {        
+    {
+
         if (anim.GetBool("acaoOcorrendo"))
         {
             return;
@@ -37,16 +36,16 @@ public class Glock : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
-            if (!estahAtirando && municao > 0)
+            if (!estahAtirando && PlayerStatus.Instance.municaoPlayer > 0)
             {
                 somTiro.clip = clips[0];
-                municao--;
+                PlayerStatus.Instance.municaoPlayer--;
                 estahAtirando = true;
                 StartCoroutine(Atirando());
 
             }else
             {
-                if (!estahAtirando && municao == 0 && carregador > 0)
+                if (!estahAtirando && PlayerStatus.Instance.municaoPlayer == 0 && PlayerStatus.Instance.carregadorPlayer > 0)
                 {
                     Recarregar();
                 }
@@ -61,7 +60,7 @@ public class Glock : MonoBehaviour
         {
             if (Input.GetButtonDown("Recarregar"))
             {
-                if (carregador > 0 && municao < 17)
+                if (PlayerStatus.Instance.carregadorPlayer > 0 && PlayerStatus.Instance.municaoPlayer < 17)
                 {
                     Recarregar();
                 }
@@ -138,19 +137,21 @@ public class Glock : MonoBehaviour
         somTiro.Play();
 
         anim.Play("RecarregarGlock");
-        municao = 17;
-        carregador--;
+        PlayerStatus.Instance.municaoPlayer = 17;
+        PlayerStatus.Instance.carregadorPlayer--;
     }
 
     private void AtualizarTextoMunicao()
     {
-        textoMunicao.text = municao.ToString() + "/" + carregador.ToString();
+        if(PlayerStatus.Instance != null)
+        {
+            PlayerStatus.Instance.AtualizarMunicao(false);
+        }
     }
 
     public void AddCarregador()
     {
-        carregador++;
-        AtualizarTextoMunicao();
+        PlayerStatus.Instance.carregadorPlayer++;
         somTiro.clip = clips[3];
         somTiro.time = 0;
         somTiro.Play();

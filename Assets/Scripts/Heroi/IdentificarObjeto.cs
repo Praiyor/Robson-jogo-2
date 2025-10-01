@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class IdentificarObjeto : MonoBehaviour
 {
     private float distanciaAlvo;
-    private GameObject objArrastar, objPegar, objAlvo;
+    private GameObject objArrastar, objPegar, objAlvo, objEntrar;
     public Text textoTecla, textoMsg;
 
 
@@ -35,7 +35,7 @@ public class IdentificarObjeto : MonoBehaviour
             {
                 distanciaAlvo = hit.distance;
 
-                if(objAlvo != null && hit.transform.gameObject != objAlvo)
+                if (objAlvo != null && hit.transform.gameObject != objAlvo)
                 {
                     objAlvo.GetComponent<Outline>().OutlineWidth = 0f;
                     objAlvo = null;
@@ -67,9 +67,28 @@ public class IdentificarObjeto : MonoBehaviour
                     //print("Pegar " + objPegar);
                 }
 
-                if(objAlvo != null)
+                if (hit.transform.CompareTag("Entrar"))
                 {
-                    objAlvo.GetComponent<Outline>().OutlineWidth = 5f;
+                    objEntrar = hit.transform.gameObject;
+                    objAlvo = objEntrar;
+
+                    IEntrar entrarObj = objEntrar.GetComponent<IEntrar>();
+                    if (entrarObj != null)
+                    {
+                        textoTecla.color = new Color(0, 200 / 255f, 1);
+                        textoMsg.color = textoTecla.color; 
+                        textoTecla.text = "[F]";
+                        textoMsg.text = "Entrar/Sair";
+                    }
+                }
+
+                if (objAlvo != null)
+                {
+                    Outline outline = objAlvo.GetComponent<Outline>();
+                    if(outline != null)
+                    {
+                        outline.OutlineWidth = 5f;
+                    }
                 }
             }
             else
@@ -77,7 +96,11 @@ public class IdentificarObjeto : MonoBehaviour
 
                 if(objAlvo != null)
                 {
-                    objAlvo.GetComponent<Outline>().OutlineWidth = 0f;
+                    Outline outline = objAlvo.GetComponent<Outline>();
+                    if(outline != null)
+                    {
+                        outline.OutlineWidth = 0f;
+                    }
                     objAlvo = null;
 
                     EsconderTexto();
@@ -89,8 +112,15 @@ public class IdentificarObjeto : MonoBehaviour
 
     public void EsconderTexto()
     {
-        textoTecla.text = "";
-        textoMsg.text = "";
+        if(textoTecla != null)
+        {
+            textoTecla.text = "";
+        }
+        if(textoMsg != null)
+        {
+            textoMsg.text = "";
+        }
+            
     }
 
     public float GetDistanciaAlvo()
@@ -107,4 +137,10 @@ public class IdentificarObjeto : MonoBehaviour
     {
         return objPegar;
     }
+
+    public GameObject getObjEntrar()
+    {
+        return objEntrar;
+    }
+
 }

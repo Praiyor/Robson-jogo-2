@@ -10,11 +10,14 @@ public class FieldOfView : MonoBehaviour
 
     public bool podeVerPlayer;
     private GameObject player;
+    private GameObject carro;
+    public GameObject alvoAtual;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindWithTag("Player");
+        carro = GameObject.FindWithTag("CorpoCarro");
     }
 
     // Update is called once per frame
@@ -32,12 +35,12 @@ public class FieldOfView : MonoBehaviour
 
     private void ProcurarPlayerVisivel()
     {
+
         Collider[] alvosDentroRaio = Physics.OverlapSphere(transform.position, distanciaVisao);
 
         foreach(Collider alvo in alvosDentroRaio)
         {
-
-            if(alvo.gameObject == player)
+            if (alvo.gameObject == player || alvo.gameObject == carro)
             {
                 Vector3 dirToAlvo = (alvo.transform.position - transform.position).normalized;
                 dirToAlvo.y = 0;
@@ -49,6 +52,7 @@ public class FieldOfView : MonoBehaviour
                     if(!Physics.Raycast(transform.position, dirToAlvo, disToAlvo))
                     {
                         podeVerPlayer = true;
+                        alvoAtual = alvo.gameObject;
                         OlharParaJogador();
                         return;
                     }
