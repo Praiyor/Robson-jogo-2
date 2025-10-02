@@ -22,7 +22,6 @@ public class Glock : MonoBehaviour
         estahAtirando = false;
         anim = GetComponent<Animator>();
         somTiro = GetComponent<AudioSource>();
-        AtualizarTextoMunicao();
     }
 
     // Update is called once per frame
@@ -141,7 +140,7 @@ public class Glock : MonoBehaviour
         PlayerStatus.Instance.carregadorPlayer--;
     }
 
-    private void AtualizarTextoMunicao()
+    public void AtualizarTextoMunicao()
     {
         if(PlayerStatus.Instance != null)
         {

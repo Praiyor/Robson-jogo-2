@@ -8,6 +8,8 @@ public class IdentificarObjeto : MonoBehaviour
     private float distanciaAlvo;
     private GameObject objArrastar, objPegar, objAlvo, objEntrar;
     public Text textoTecla, textoMsg;
+    public int distanciaInteracao;
+    public LayerMask layersParaIgnorar;
 
 
     // Start is called before the first frame update
@@ -22,22 +24,25 @@ public class IdentificarObjeto : MonoBehaviour
 
         if(Time.frameCount % 5 == 0)
         {
+            Debug.Log("chamou");
             objArrastar = null;
             objPegar = null;
 
-            int ignorarLayer = 7;
-            ignorarLayer = 1 << ignorarLayer;
-            ignorarLayer = ~ignorarLayer;
-
             RaycastHit hit;
 
-            if(Physics.SphereCast(transform.position, 0.1f, transform.TransformDirection(Vector3.forward), out hit, 5, ignorarLayer))
+            if(Physics.SphereCast(transform.position, 0.1f, transform.TransformDirection(Vector3.forward), out hit, distanciaInteracao, retornarLayers()))
             {
+                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
+                Debug.Log("Acertou: " + hit.transform.name + " a " + hit.distance + " metros");
                 distanciaAlvo = hit.distance;
 
-                if (objAlvo != null && hit.transform.gameObject != objAlvo)
+                if (objAlvo != null)
                 {
-                    objAlvo.GetComponent<Outline>().OutlineWidth = 0f;
+                    Outline outline = objAlvo.GetComponent<Outline>();
+                    if (outline != null)
+                    {
+                        outline.OutlineWidth = 0f;
+                    }
                     objAlvo = null;
 
                     EsconderTexto();
@@ -78,7 +83,7 @@ public class IdentificarObjeto : MonoBehaviour
                         textoTecla.color = new Color(0, 200 / 255f, 1);
                         textoMsg.color = textoTecla.color; 
                         textoTecla.text = "[F]";
-                        textoMsg.text = "Entrar/Sair";
+                        textoMsg.text = "Entrar";
                     }
                 }
 
@@ -141,6 +146,11 @@ public class IdentificarObjeto : MonoBehaviour
     public GameObject getObjEntrar()
     {
         return objEntrar;
+    }
+
+    private LayerMask retornarLayers()
+    {
+        return ~layersParaIgnorar;
     }
 
 }

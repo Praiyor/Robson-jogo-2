@@ -26,6 +26,7 @@ public class MovimentarPersonagem : MonoBehaviour
     private int pontos = 0;
     public Text textoPontos;
     private PlayerStatus playerStatus;
+    public GameObject arma;
 
     Vector3 velocidadeCai;
 
@@ -35,6 +36,7 @@ public class MovimentarPersonagem : MonoBehaviour
         cameraTransform = Camera.main.transform;
         audioSrc = GetComponent<AudioSource>();
         playerStatus = GetComponent<PlayerStatus>();
+        arma.SetActive(false);
 
         if (textoPontos != null)
         {
@@ -122,6 +124,13 @@ public class MovimentarPersonagem : MonoBehaviour
             controle.height = alturaLevantado;
             cameraTransform.localPosition = new Vector3(0, posicaoCameraEmPe, 0);
         }
+    }
+
+    public void PegarArma()
+    {
+        arma.SetActive(true);
+        arma.GetComponent<Glock>().enabled = true;
+        arma.GetComponent<Glock>().AtualizarTextoMunicao();
     }
 
     private void ChecarBloqueioAbaixo()

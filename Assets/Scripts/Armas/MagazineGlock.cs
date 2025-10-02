@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class MagazineGlock : MonoBehaviour, IPegavel
 {
+
+    private GameObject arma;
+    private CanhaoCarro armaCarro;
+
+    
     public void Pegar()
     {
-        Glock g = GameObject.FindWithTag("Arma").GetComponent<Glock>();
-        g.AddCarregador();
+        arma = GameObject.FindWithTag("Arma");
+        arma.GetComponent<Glock>().AddCarregador();
     }
 
 }

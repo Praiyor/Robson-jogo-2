@@ -28,7 +28,10 @@ public class PlayerStatus : MonoBehaviour
     {
         vida = Mathf.Clamp(vida + delta, 0, 100);
         if (sliderVida != null)
+        {
             sliderVida.value = vida;
+        }
+            
 
         if (vida <= 0)
         {

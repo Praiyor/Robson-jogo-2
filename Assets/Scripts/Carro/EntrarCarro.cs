@@ -6,7 +6,6 @@ public class EntrarCarro : MonoBehaviour, IEntrar
     public GameObject carro;
     public Camera cameraPlayer;
     public Camera cameraCarro;
-    public Transform pontoSaida;
     public GameObject canhao;
 
     private bool dentroDoCarro = false;
@@ -24,10 +23,7 @@ public class EntrarCarro : MonoBehaviour, IEntrar
 
     void Update()
     {
-        if (dentroDoCarro && Input.GetKeyDown(KeyCode.F))
-        {
-            Sair();
-        }
+
     }
 
     public void Entrar()
@@ -51,44 +47,13 @@ public class EntrarCarro : MonoBehaviour, IEntrar
         player.SetActive(false);
         carroController.enabled = true;
         canhao.GetComponent<CanhaoCarro>().enabled = true;
+        carro.layer = LayerMask.NameToLayer("IgnorePlayercast");
 
         cameraCarro.enabled = true;
+        cameraCarro.tag = "MainCamera";
         cameraCarro.GetComponent<AudioListener>().enabled = true;
         cameraCarro.GetComponent<CameraCarro>().enabled = true;
         cameraPlayer.GetComponent<AudioListener>().enabled = false;
-    }
-
-    public void Sair()
-    {
-        if (!dentroDoCarro)
-        {
-            return;
-        }
-        
-
-        dentroDoCarro = false;
-
-        player.GetComponent<MovimentarPersonagem>().enabled = true;
-
-
-        if (pontoSaida != null)
-        {
-            player.transform.position = pontoSaida.position;
-            player.transform.rotation = pontoSaida.rotation;
-        }
-        else
-        {
-            player.transform.position = carro.transform.position + carro.transform.right * 2f;
-        }
-
-        player.SetActive(true);
-
-        carroController.enabled = false;
-        canhao.GetComponent<CanhaoCarro>().enabled = false;
-        cameraCarro.enabled = false;
-        cameraCarro.GetComponent<AudioListener>().enabled = false;
-        cameraCarro.GetComponent<CameraCarro>().enabled = false;
-        cameraPlayer.GetComponent<AudioListener>().enabled = true;
     }
 
     public bool EstaDentro()

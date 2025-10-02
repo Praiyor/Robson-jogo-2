@@ -4,6 +4,5 @@ using UnityEngine;
 
 public interface IEntrar { 
     void Entrar(); 
-    void Sair(); 
     bool EstaDentro(); 
 }

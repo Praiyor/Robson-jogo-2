@@ -10,6 +10,7 @@ TagManager:
   - LevarDano
   - Entrar
   - CorpoCarro
+  - ArmaCarro
   layers:
   - Default
   - TransparentFX
