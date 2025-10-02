@@ -9,7 +9,7 @@ public class InimigoBoss : MonoBehaviour, ILevarDano
     private NavMeshAgent agente;
     private GameObject player;
     private Animator anim;
-    public float distanciaDoAtaque = 2.0f;
+    public float distanciaDoAtaque = 3.0f;
     public int vida = 100;
     public AudioClip somMorte;
     public AudioClip somPasso;

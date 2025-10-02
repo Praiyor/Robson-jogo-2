@@ -24,7 +24,6 @@ public class IdentificarObjeto : MonoBehaviour
 
         if(Time.frameCount % 5 == 0)
         {
-            Debug.Log("chamou");
             objArrastar = null;
             objPegar = null;
 
@@ -32,8 +31,6 @@ public class IdentificarObjeto : MonoBehaviour
 
             if(Physics.SphereCast(transform.position, 0.1f, transform.TransformDirection(Vector3.forward), out hit, distanciaInteracao, retornarLayers()))
             {
-                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
-                Debug.Log("Acertou: " + hit.transform.name + " a " + hit.distance + " metros");
                 distanciaAlvo = hit.distance;
 
                 if (objAlvo != null)

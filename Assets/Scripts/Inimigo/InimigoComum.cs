@@ -159,7 +159,7 @@ public class InimigoComum : MonoBehaviour, ILevarDano
     {
         if(PlayerStatus.Instance != null)
         {
-            PlayerStatus.Instance.AtualizarVida(-25);
+            PlayerStatus.Instance.AtualizarVida(-10);
         }
         
     }

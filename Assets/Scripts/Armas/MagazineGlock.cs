@@ -11,8 +11,18 @@ public class MagazineGlock : MonoBehaviour, IPegavel
     
     public void Pegar()
     {
-        arma = GameObject.FindWithTag("Arma");
-        arma.GetComponent<Glock>().AddCarregador();
+        var entrarCarro = GameObject.FindWithTag("Entrar").GetComponent<EntrarCarro>();
+
+        if(entrarCarro.EstaDentro())
+        {
+            PlayerStatus.Instance.municaoCarro = PlayerStatus.Instance.municaoMaxCarro;
+            PlayerStatus.Instance.AtualizarMunicao(true);
+        }else
+        {
+            arma = GameObject.FindWithTag("Arma");
+            arma.GetComponent<Glock>().AddCarregador();
+        }
+            
     }
 
 }
