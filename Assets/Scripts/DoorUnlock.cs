@@ -38,6 +38,10 @@ public class DoorUnlock : MonoBehaviour
         {
             GameManager.OnBossKilled += UnlockDoor;
         }
+        if (door != null)
+        {
+            door.OnDoorOpened += HandleDoorOpened;
+        }
     }
 
     private void OnDisable()
@@ -49,6 +53,17 @@ public class DoorUnlock : MonoBehaviour
         else if (unlockType == DoorUnlockType.BossDoor)
         {
             GameManager.OnBossKilled -= UnlockDoor;
+        }
+        if (door != null)
+        {
+            door.OnDoorOpened -= HandleDoorOpened;
+        }
+    }
+    private void HandleDoorOpened()
+    {
+        if (outline != null)
+        {
+            outline.enabled = false;
         }
     }
 

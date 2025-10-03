@@ -16,7 +16,10 @@ namespace SunTemple
 		public string playerTag = "Player";
 		private Collider DoorCollider;
 
-		private GameObject Player;
+        public event System.Action OnDoorOpened;
+        public event System.Action OnDoorClosed;
+
+        private GameObject Player;
 		private Camera Cam;
 		private CursorManager cursor;
 
@@ -170,6 +173,8 @@ namespace SunTemple
             EndAngle =  StartRotation.y + OpenRotationAmount;
             CurrentLerpTime = 0;
             Rotating = true;
+
+            OnDoorOpened?.Invoke();
         }
 
 
@@ -182,6 +187,8 @@ namespace SunTemple
             EndAngle = transform.localEulerAngles.y - OpenRotationAmount;
             CurrentLerpTime = 0;
             Rotating = true;
+
+			OnDoorClosed?.Invoke();
         }
 
     }

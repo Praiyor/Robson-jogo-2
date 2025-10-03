@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 public class InimigoBoss : MonoBehaviour, ILevarDano
 {
@@ -13,7 +14,8 @@ public class InimigoBoss : MonoBehaviour, ILevarDano
     public int vida = 100;
     public AudioClip somMorte;
     public AudioClip somPasso;
-    public AudioClip somInicial;
+    public AudioClip somInicial;    
+    public AudioClip[] sonsDano;
     private AudioSource audioSrc;
     private Boolean viuHeroi = false;
     private FieldOfView fov;
@@ -98,10 +100,19 @@ public class InimigoBoss : MonoBehaviour, ILevarDano
     public void LevarDano(int dano)
     {
         vida -= dano;
+
         if (agente != null && agente.enabled && agente.isOnNavMesh)
         {
             agente.isStopped = true;
         }
+
+        
+        if (sonsDano != null && sonsDano.Length > 0 && audioSrc != null)
+        {
+            int index = Random.Range(0, sonsDano.Length);
+            audioSrc.PlayOneShot(sonsDano[index]);
+        }
+
         anim.SetTrigger("levouTiro");
         anim.SetBool("podeAndar", false);
     }
@@ -114,7 +125,7 @@ public class InimigoBoss : MonoBehaviour, ILevarDano
 
         if (PlayerStatus.Instance != null)
         {
-            PlayerStatus.Instance.AtualizarPontuacao(+10);
+            PlayerStatus.Instance.AtualizarPontuacao(+30);
         }
 
         agente.isStopped = true;

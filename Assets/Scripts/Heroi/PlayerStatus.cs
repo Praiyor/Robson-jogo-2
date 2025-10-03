@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class PlayerStatus : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class PlayerStatus : MonoBehaviour
     public Slider sliderVida;
     public Text textoPontos;
     public Text textoMunicao;
+    public AudioSource audioSource;
+    public AudioClip[] sonsDano;
+    public AudioClip somVida;
 
     public int municaoPlayer = 17;
     public int carregadorPlayer = 3;
@@ -31,7 +35,17 @@ public class PlayerStatus : MonoBehaviour
         {
             sliderVida.value = vida;
         }
-            
+        
+        if (delta < 0 && sonsDano != null && sonsDano.Length > 0 && audioSource != null)
+        {
+            int index = Random.Range(0, sonsDano.Length);
+            audioSource.PlayOneShot(sonsDano[index]);
+        }
+
+        if (delta > 0 && somVida != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(somVida);
+        }
 
         if (vida <= 0)
         {
