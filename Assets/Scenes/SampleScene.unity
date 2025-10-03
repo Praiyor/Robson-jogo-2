@@ -454,16 +454,28 @@ PrefabInstance:
       value: Pegar
       objectReference: {fileID: 0}
     - target: {fileID: 5738456080911321149, guid: a35b8c32acba1334b9b31dfe8cdbc9be, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5738456080911321149, guid: a35b8c32acba1334b9b31dfe8cdbc9be, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5738456080911321149, guid: a35b8c32acba1334b9b31dfe8cdbc9be, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5738456080911321149, guid: a35b8c32acba1334b9b31dfe8cdbc9be, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 85.840775
+      value: 97.83
       objectReference: {fileID: 0}
     - target: {fileID: 5738456080911321149, guid: a35b8c32acba1334b9b31dfe8cdbc9be, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.3731735
+      value: 4.25
       objectReference: {fileID: 0}
     - target: {fileID: 5738456080911321149, guid: a35b8c32acba1334b9b31dfe8cdbc9be, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 42.38546
+      value: 96.53
       objectReference: {fileID: 0}
     - target: {fileID: 5738456080911321149, guid: a35b8c32acba1334b9b31dfe8cdbc9be, type: 3}
       propertyPath: m_LocalRotation.w
@@ -663,7 +675,7 @@ Transform:
   m_GameObject: {fileID: 159290995}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.99415183, z: -0, w: -0.1079917}
-  m_LocalPosition: {x: 121.7, y: 1.06, z: 53.78}
+  m_LocalPosition: {x: 132.28, y: 1.06, z: 105.91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1288,6 +1300,37 @@ WheelCollider:
   m_CorrespondingSourceObject: {fileID: 14677570, guid: ffe00fa3bd41b9a4db665bf728e3c1e1, type: 3}
   m_PrefabInstance: {fileID: 602667051}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &429245048
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 429245049}
+  m_Layer: 12
+  m_Name: PontoCameraDentro
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &429245049
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429245048}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.366, y: 0.96, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 602667052}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &437920259
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1548,6 +1591,126 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!1 &540275202 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 112312, guid: ffe00fa3bd41b9a4db665bf728e3c1e1, type: 3}
+  m_PrefabInstance: {fileID: 602667051}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &540275205 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9583264, guid: ffe00fa3bd41b9a4db665bf728e3c1e1, type: 3}
+  m_PrefabInstance: {fileID: 602667051}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &540275208
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 540275202}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &540275209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 540275202}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e4dc7e18d3cbaa4098d2751f4b524bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  somAbrir: {fileID: 8300000, guid: 0bbdd2eccc3f91343a5e2ff7e32ac786, type: 3}
+  somFechar: {fileID: 8300000, guid: f44a5cac30af75b4a8be6e6d8b422012, type: 3}
 --- !u!1001 &550151669
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1871,6 +2034,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9583264, guid: ffe00fa3bd41b9a4db665bf728e3c1e1, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 7b0357fea58d3c04380d27908f732217, type: 2}
     - target: {fileID: 19879246, guid: ffe00fa3bd41b9a4db665bf728e3c1e1, type: 3}
       propertyPath: InitialModule.startSizeY.minMaxState
       value: 3
@@ -1901,6 +2068,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 470836, guid: ffe00fa3bd41b9a4db665bf728e3c1e1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1309573648}
+    - targetCorrespondingSourceObject: {fileID: 470836, guid: ffe00fa3bd41b9a4db665bf728e3c1e1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 429245049}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 161566, guid: ffe00fa3bd41b9a4db665bf728e3c1e1, type: 3}
       insertIndex: -1
@@ -1908,6 +2078,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 161566, guid: ffe00fa3bd41b9a4db665bf728e3c1e1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 602667054}
+    - targetCorrespondingSourceObject: {fileID: 112312, guid: ffe00fa3bd41b9a4db665bf728e3c1e1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 540275208}
+    - targetCorrespondingSourceObject: {fileID: 112312, guid: ffe00fa3bd41b9a4db665bf728e3c1e1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 540275209}
   m_SourcePrefab: {fileID: 100100000, guid: ffe00fa3bd41b9a4db665bf728e3c1e1, type: 3}
 --- !u!4 &602667052 stripped
 Transform:
@@ -1936,6 +2112,11 @@ MonoBehaviour:
   cameraPlayer: {fileID: 963194227}
   cameraCarro: {fileID: 1309573650}
   canhao: {fileID: 863149121}
+  portaEsquerdaAnimator: {fileID: 540275205}
+  pontoCameraDentro: {fileID: 429245049}
+  portaAudioSource: {fileID: 540275208}
+  somAbrir: {fileID: 8300000, guid: 0bbdd2eccc3f91343a5e2ff7e32ac786, type: 3}
+  somFechar: {fileID: 8300000, guid: f44a5cac30af75b4a8be6e6d8b422012, type: 3}
 --- !u!114 &602667055
 MonoBehaviour:
   m_ObjectHideFlags: 0

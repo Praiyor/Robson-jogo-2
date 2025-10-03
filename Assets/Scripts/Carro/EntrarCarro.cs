@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class EntrarCarro : MonoBehaviour, IEntrar
@@ -7,6 +8,15 @@ public class EntrarCarro : MonoBehaviour, IEntrar
     public Camera cameraPlayer;
     public Camera cameraCarro;
     public GameObject canhao;
+
+    [Header("Referências para animação")]
+    public Animator portaEsquerdaAnimator;
+    public Transform pontoCameraDentro;
+
+    [Header("Áudio da Porta")]
+    public AudioSource portaAudioSource;
+    public AudioClip somAbrir;
+    public AudioClip somFechar;
 
     private bool dentroDoCarro = false;
     private CarroController carroController;
@@ -21,29 +31,56 @@ public class EntrarCarro : MonoBehaviour, IEntrar
         canhao.GetComponent<CanhaoCarro>().enabled = false;
     }
 
-    void Update()
-    {
-
-    }
-
     public void Entrar()
     {
-        if (dentroDoCarro) 
-        {
-            return;
-        }
+        if (dentroDoCarro) return;
+        StartCoroutine(SequenciaEntrada());
+    }
 
+    private IEnumerator SequenciaEntrada()
+    {
         dentroDoCarro = true;
 
-        player.GetComponent<MovimentarPersonagem>().enabled = false;
         
-
-        var identificar = cameraPlayer.GetComponent<IdentificarObjeto>();
-        if (identificar != null)
+        if (portaEsquerdaAnimator != null)
         {
-            identificar.EsconderTexto();
+            portaEsquerdaAnimator.SetTrigger("Abrir");
+        }
+        if (portaAudioSource != null && somAbrir != null)
+        {
+            portaAudioSource.PlayOneShot(somAbrir);
         }
 
+        
+        float duracao = 1.0f;
+        float tempo = 0f;
+        Vector3 posInicial = cameraPlayer.transform.position;
+        Quaternion rotInicial = cameraPlayer.transform.rotation;
+
+        while (tempo < duracao)
+        {
+            tempo += Time.deltaTime;
+            float t = tempo / duracao;
+
+            cameraPlayer.transform.position = Vector3.Lerp(posInicial, pontoCameraDentro.position, t);
+            cameraPlayer.transform.rotation = Quaternion.Slerp(rotInicial, pontoCameraDentro.rotation, t);
+
+            yield return null;
+        }
+
+        
+        if (portaEsquerdaAnimator != null)
+        {
+            portaEsquerdaAnimator.SetTrigger("Fechar");
+        }
+        if (portaAudioSource != null && somFechar != null)
+        {
+            portaAudioSource.PlayOneShot(somFechar);
+        }
+
+        yield return new WaitForSeconds(0.5f);
+
+        
         player.SetActive(false);
         carroController.enabled = true;
         canhao.GetComponent<CanhaoCarro>().enabled = true;
