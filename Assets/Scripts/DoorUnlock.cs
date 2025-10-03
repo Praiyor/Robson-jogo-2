@@ -9,6 +9,10 @@ public class DoorUnlock : MonoBehaviour
     private Door door;
     private Outline outline;
 
+    [Header("Áudio da Porta")]
+    public AudioSource audioSource;     
+    public AudioClip somDestrancar;    
+
     private void Awake()
     {
         door = GetComponent<Door>();
@@ -16,6 +20,11 @@ public class DoorUnlock : MonoBehaviour
         if (outline != null)
         {
             outline.enabled = false;
+        }
+
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
         }
     }
 
@@ -52,6 +61,12 @@ public class DoorUnlock : MonoBehaviour
             if (outline != null)
             {
                 outline.enabled = true;
+            }
+
+           
+            if (audioSource != null && somDestrancar != null)
+            {
+                audioSource.PlayOneShot(somDestrancar);
             }
         }
     }

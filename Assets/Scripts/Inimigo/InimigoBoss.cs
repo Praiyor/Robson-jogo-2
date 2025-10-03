@@ -108,7 +108,7 @@ public class InimigoBoss : MonoBehaviour, ILevarDano
 
     private void Morrer()
     {
-        GameManager.EnemyKilled(false);
+        GameManager.BossKilled();
         audioSrc.clip = somMorte;
         audioSrc.Play();
 
