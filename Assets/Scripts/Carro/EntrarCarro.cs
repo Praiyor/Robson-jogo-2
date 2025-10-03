@@ -91,6 +91,18 @@ public class EntrarCarro : MonoBehaviour, IEntrar
         cameraCarro.GetComponent<AudioListener>().enabled = true;
         cameraCarro.GetComponent<CameraCarro>().enabled = true;
         cameraPlayer.GetComponent<AudioListener>().enabled = false;
+
+        SomMotor somMotor = carro.GetComponent<SomMotor>();
+        if (somMotor != null)
+        {
+            somMotor.LigarMotor();
+        }
+
+        SomRodas somRodas = carro.GetComponent<SomRodas>();
+        if (somRodas != null)
+        {
+            somRodas.LigarRodas();
+        }
     }
 
     public bool EstaDentro()
