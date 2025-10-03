@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 77135443}
   - component: {fileID: 77135446}
   - component: {fileID: 77135447}
+  - component: {fileID: 77135448}
   m_Layer: 6
   m_Name: Terrain
   m_TagString: Untagged
@@ -282,6 +283,29 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 9b2a92f76ad17b64a806242d482ffea6, type: 2}
   m_BuildHeightMesh: 1
+--- !u!136 &77135448
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 77135442}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &83896718
 GameObject:
   m_ObjectHideFlags: 0
@@ -675,7 +699,7 @@ Transform:
   m_GameObject: {fileID: 159290995}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.99415183, z: -0, w: -0.1079917}
-  m_LocalPosition: {x: 138.29, y: 1.06, z: 78.56}
+  m_LocalPosition: {x: 137.07, y: 1.06, z: 84.12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1324,13 +1348,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 429245048}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.366, y: 0.96, z: 0}
+  m_LocalRotation: {x: -0.0077205407, y: -0.010295353, z: -0.00007949477, w: -0.9999172}
+  m_LocalPosition: {x: -0.3659973, y: 0.96, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 602667052}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.885, y: 361.18, z: 0.018}
 --- !u!1001 &437920259
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1996,7 +2020,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 470836, guid: ffe00fa3bd41b9a4db665bf728e3c1e1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 104.682625
+      value: 103.5
       objectReference: {fileID: 0}
     - target: {fileID: 470836, guid: ffe00fa3bd41b9a4db665bf728e3c1e1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2004,7 +2028,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 470836, guid: ffe00fa3bd41b9a4db665bf728e3c1e1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 44.159477
+      value: 155.1
       objectReference: {fileID: 0}
     - target: {fileID: 470836, guid: ffe00fa3bd41b9a4db665bf728e3c1e1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2139,10 +2163,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   control: 0
-  maxAcceleration: 120
+  maxAcceleration: 70
   brakeAcceleration: 50
   turnSensitivity: 1
-  maxSteerAngle: 30
+  maxSteerAngle: 20
   _centerOfMass: {x: 0, y: 0, z: 0}
   wheels:
   - wheelModel: {fileID: 2084577501}

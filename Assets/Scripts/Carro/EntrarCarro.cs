@@ -81,6 +81,10 @@ public class EntrarCarro : MonoBehaviour, IEntrar
         yield return new WaitForSeconds(0.5f);
 
         
+        cameraPlayer.transform.position = pontoCameraDentro.position;
+        cameraPlayer.transform.rotation = pontoCameraDentro.rotation;
+
+        
         player.SetActive(false);
         carroController.enabled = true;
         canhao.GetComponent<CanhaoCarro>().enabled = true;
@@ -91,7 +95,6 @@ public class EntrarCarro : MonoBehaviour, IEntrar
         cameraCarro.GetComponent<AudioListener>().enabled = true;
         cameraCarro.GetComponent<CameraCarro>().enabled = true;
         cameraPlayer.GetComponent<AudioListener>().enabled = false;
-
         SomMotor somMotor = carro.GetComponent<SomMotor>();
         if (somMotor != null)
         {
