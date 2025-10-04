@@ -83,4 +83,8 @@ public class PlayerStatus : MonoBehaviour
 
         SceneManager.LoadScene(0);
     }
+    public int GetPontuacao()
+    {
+        return pontos;
+    }
 }
