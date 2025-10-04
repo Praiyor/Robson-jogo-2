@@ -79,9 +79,10 @@ public class PlayerStatus : MonoBehaviour
     {
         Debug.Log("GAME OVER");
         Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-
-        SceneManager.LoadScene(0);
+        Cursor.visible = true;        
+        PlayerPrefs.SetInt("PontuacaoFinal", pontos);
+        PlayerPrefs.Save();        
+        SceneManager.LoadScene("GameOver");
     }
     public int GetPontuacao()
     {
